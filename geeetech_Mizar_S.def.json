@@ -1,0 +1,33 @@
+{
+    "version": 2,
+    "name": "Geeetech Mizar_S",
+    "inherits": "fdmprinter",
+    "metadata": {
+        "visible": true,
+        "author": "Teddy",
+        "manufacturer": "Geeetech",
+        "file_formats": "text/x-gcode",
+        "has_materials": true,
+        "machine_extruder_trains":  { "0": "geeetech_Mizar_S_extruder" }
+         },
+
+    "overrides": {
+        "machine_name": { "default_value": "Geeetech Mizar_S" },
+        "machine_width": { "default_value": 255},
+        "machine_height": {"default_value": 260},
+        "machine_depth": {"default_value": 255},        
+        "machine_center_is_zero": { "default_value": false},
+        "layer_height": { "default_value": 0.1 },
+        "layer_height_0": { "default_value": 0.3 },
+        "retraction_amount": { "default_value": 6 },
+        "retraction_enable": { "value": true },
+        "adhesion_type": { "default_value": "skirt" },
+        "machine_head_with_fans_polygon": { "default_value": [[-31,31],[34,31],[34,-40],[-31,-40]] },
+        "gantry_height": { "value": "58" },
+        "machine_heated_bed": { "default_value": true },
+        "machine_gcode_flavor": { "default_value": "RepRap (Marlin/Sprinter)" },
+        "machine_start_gcode": { "default_value": "Start G-code\nG92 E0 ; Reset Extruder\nG28 ; Home all axes\nG1 Z5.0 F3000 ; Move Z Axis up little to prevent scratching of Heat Bed\nG1 X0.1 Y20 Z0.8 F5000.0 ; Move to start position\nG1 X0.1 Y180 Z0.8 F1500.0 E40 ; Draw the first line\nG1 X0.4 Y200.0 Z0.8 F5000.0 ; Move to side a little\nG1 X0.4 Y20 Z0.4 F1500.0 E30 ; Draw the second line\nG92 E0 ; Reset Extruder\nG1 Z2.0 F3000 ; Move Z Axis up little to prevent scratching of Heat Bed\nG1 X5 Y20 Z0.4 F5000.0 ; Move over to prevent blob squish" },
+        "machine_end_gcode": { "default_value": "G91 ;Switch to relative positioning\nG1 E-1 ;Retract filament to lower pressure\nG0 X0 Y200 ;Move hotend to left and bed forward\nM104 S0 ;Cooldown hotend\nG90 ;Switch to absolute mode\nG92 E0 ;Set extruder to zero\nM140 S0 ;Cooldown bed\nM84 ; Disable steppers" },
+        "machine_extruder_count": { "default_value": 1}
+                 }
+}
